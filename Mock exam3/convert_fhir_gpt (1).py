@@ -2,7 +2,7 @@ import re
 import uuid
 from fhir.resources import bundle, patient, observation, identifier, narrative, humanname, codeableconcept, coding # <TODO>, <TODO>, <TODO>
 from datetime import datetime, timedelta
-import pandas as pd
+import pandas as pd| 
 
 loinc_codes = {
     'Pregnancy': ('82810-3', 'Pregnancy', 'mg/dL', 'Laboratory', 'laboratory'), #1 DONE TODO-FHIR What's my status? I am or I am I not?
@@ -42,7 +42,7 @@ def convert_table_to_fhir_bundle(index, row):
 
     # Create a Patient resource for each record
     patient_resource = patient.Patient(
-        id = f'Patient-{pid',
+        id = f'Patient-{pid}',
         birthDate = calculate_bd(row['Age']),
         identifier = [patient_identifier],
         text=narrative.Narrative(
@@ -67,7 +67,7 @@ def convert_table_to_fhir_bundle(index, row):
             continue
 
         observation_resource = observation.Observation(
-            id = f"observation-{index}-{oid}-{}", #4 TODO You are all different - No, I am not!
+            id = f"observation-{index}-{oid}-{''}", #4 TODO You are all different - No, I am not!
             status = 'final',
             category = [observation.CodeableConcept(
                 coding=[observation.Coding(system='http://terminology.hl7.org/CodeSystem/observation-category', code=loinc_codes[column][4], display=loinc_codes[column][3])]
