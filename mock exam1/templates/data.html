@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>2-Hour Intervals</title>
+  </head>
+  <body>
+    <h1>2-Hour Intervals</h1>
+    <ul>
+      {% for window in windows %}
+      <li>{{ window.index[0] }} to {{ window.index[-1] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

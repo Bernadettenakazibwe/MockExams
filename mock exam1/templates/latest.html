@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Latest 2-Hour Interval</title>
+  </head>
+  <body>
+    <h1>Latest 2-Hour Interval</h1>
+    <p>Minimum Heart Rate: {{ min_hr }}</p>
+    <p>Maximum Heart Rate: {{ max_hr }}</p>
+    <p>Average Heart Rate: {{ avg_hr }}</p>
+    <img src="data:image/png;base64, {{ plot_url }}" alt="Heart Rate Plot">
+  </body>
+</html>
