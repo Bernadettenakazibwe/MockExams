@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DICOM Image Overview</title>
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .image-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>DICOM Image Overview</h1>
+    <div class="image-grid">
+        {% for image in image_info %}
+        <div class="image-item">
+            <img src="{{ url_for('render_image', filename=image.filepath.split('/')[-1]) }}" alt="DICOM Image">
+            <p><strong>Patient ID:</strong> {{ image.patient_id }}</p>
+            <p><strong>Date:</strong> {{ image.study_date.split(',')[0] }}, {{ image.study_date.split(',')[1] }}</p>
+            <p><strong>Age:</strong> {{ image.age }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
